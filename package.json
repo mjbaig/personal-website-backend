@@ -6,6 +6,10 @@
   "scripts": {
     "test": "node server.js"
   },
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/mjbaig/personal-website-backend.git"
+  },
   "author": "Maz Baig",
   "license": "MIT",
   "dependencies": {
