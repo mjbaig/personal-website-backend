@@ -35,7 +35,7 @@ async function startConfiguration(){
     logger.info("Database Pool Created");
 
     //Inject dependencies into dota routes
-    var dotaRoutes = await new DotaRouter({database:pool,logger:logger},steamAPIKey).getRouter();
+    var dotaRoutes = await new DotaRouter(steamAPIKey, pool, logger).getRouter();
 
     //configure routes
     router.use('/dota',dotaRoutes.routes());

@@ -7,8 +7,9 @@ const router = new Router();
 
 module.exports = class DotaRouter {
 
-    constructor(databaseObject, apiKey){
+    constructor(apiKey, databaseObject, logger){
         this.databaseObject = databaseObject;
+        this.logger = logger;
         this.apiKey = apiKey;
         this.router = new Router();
         
@@ -25,11 +26,11 @@ module.exports = class DotaRouter {
         });
 
         this.router.get('/myMatchHistory', async (ctx, next) => {
-            ctx.body = await matchHistoryRefresh.getMyMatchHistory(this.apiKey);
+            ctx.body = await matchHistoryRefresh.getMyMatchHistory(this.apiKey, this.databaseObject, this.logger);
         });
 
         this.router.get('/myMatchDetails', async (ctx, next) => {
-            ctx.body = await matchHistoryRefresh.getMyMatchDetails(this.apiKey, '3560938900');
+            ctx.body = await matchHistoryRefresh.getMyMatchDetails('3560938900', this.apiKey, this.databaseObject, this.logger);
         });
     }
 

@@ -16,13 +16,13 @@
 
 const request = require('request-promise');
 
-async function getMyMatchHistory(apiKey){
+async function getMyMatchHistory(apiKey, databaseObject, logger){
     var matchHistoryString = await request("https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key="+apiKey+"&account_id=76561198180349542");
     var matchHistoryData = JSON.parse(matchHistoryString);
     return matchHistoryData; 
 }
 
-async function getMyMatchDetails(apiKey, matchId){
+async function getMyMatchDetails(matchId, apiKey, databaseObject, logger){
     var matchDetailsString = await request("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?match_id="+matchId+"&key="+apiKey);
     var matchDetailsData = JSON.parse(matchDetailsString);
     return matchDetailsData; 
