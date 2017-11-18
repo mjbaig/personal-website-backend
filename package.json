@@ -6,19 +6,18 @@
   "scripts": {
     "test": "node server.js"
   },
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/mjbaig/personal-website-backend.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjbaig/personal-website-backend.git"
   },
   "author": "Maz Baig",
   "license": "MIT",
   "dependencies": {
-    "bignumber": "^1.1.0",
     "bignumber.js": "^4.1.0",
-    "express": "^4.16.2",
     "koa-router": "^7.2.1",
     "koa2": "^2.0.0-alpha.7",
-    "pg": "^7.4.0",
+    "pg": "^6.4.2",
+    "pg-hstore": "^2.3.2",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "winston": "^2.4.0"
