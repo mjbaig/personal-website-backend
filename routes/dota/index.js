@@ -1,4 +1,3 @@
-const express = require('express');
 const itemDataRefresh = require('../../services/dota/data-refresh/item-data-refresh');
 const heroDataRefresh = require('../../services/dota/data-refresh/hero-data-refresh');
 const matchHistoryRefresh = require('../../services/dota/data-refresh/match-history-refresh');

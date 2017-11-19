@@ -9,7 +9,8 @@ const Router = require('koa-router');
 const request = require('request-promise');
 const configuration = require('./config');
 const DotaRouter = require('./routes/dota/index');
-const logger = require('winston')
+const loggerConfig = require('./config/logger-config');
+const databaseConfig = require('./config/database-config');
 
 const { Pool } = require('pg');
 
@@ -20,22 +21,16 @@ var router = new Router();
 
 async function startConfiguration(){
 
-    //Create a logger
-    logger.add(logger.transports.File, { filename: 'somefile.log' });
+    //A Configured Winston Logger object
+    const logger = loggerConfig.getLogger();
 
-    logger.info("Logger Created");
-
-    //Create database pool
-    const config = {
-        database : 'database-name',
-        host     : "localhost",
-      }
-    const pool = new Pool(config)
+    //A Configured sequelize database object
+    const database = databaseConfig.getDatabase();
 
     logger.info("Database Pool Created");
 
     //Inject dependencies into dota routes
-    var dotaRoutes = await new DotaRouter(steamAPIKey, pool, logger).getRouter();
+    var dotaRoutes = await new DotaRouter(steamAPIKey, database, logger).getRouter();
 
     //configure routes
     router.use('/dota',dotaRoutes.routes());
