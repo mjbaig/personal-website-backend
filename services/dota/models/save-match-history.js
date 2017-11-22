@@ -1,6 +1,6 @@
 module.exports = class SaveMatchHistoryModel {
 
-        MatchHistoryData = sequelize.define('match_history_data', {
+        matchHistoryData = sequelize.define('match_history_data', {
             match_id: {
             type: Sequelize.STRING
             },
@@ -26,13 +26,13 @@ module.exports = class SaveMatchHistoryModel {
             this.logger = logger;
         }
 
-        async save(MatchHistoryData){
-            var formattedMatchHistoryData = this.formatDataForUpload(MatchHistoryData);
-            await MatchHistoryData.sync({force: true})
-            return await MatchHistoryData.create({});
+        async save(matchHistoryData){
+            var formattedMatchHistoryData = this.formatDataForUpload(matchHistoryData);
+            await matchHistoryData.sync({force: true})
+            return await matchHistoryData.create({});
         }
 
-        formatDataForUpload(MatchHistoryData){
+        formatDataForUpload(matchHistoryData){
             return {};
         }
     }
