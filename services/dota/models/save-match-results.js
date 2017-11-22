@@ -1,32 +1,6 @@
-var matchResultsSchema = {
-    players :[],
-    radiant_win: '',
-    duration: '',
-    pre_game_duration: '',
-    start_time: '',
-    match_id: '',
-    match_seq_num : '',
-    tower_status_radiant: '',
-    tower_status_dire: '',
-    barracks_status_radiant: '',
-    barracks_status_dire: '',
-    cluster: '',
-    first_blood_time: '',
-    lobby_type: '',
-    human_players: '',
-    leagueid: '',
-    positive_votes: '',
-    negative_votes: '',
-    game_mode: '',
-    flags: '',
-    engine: '',
-    radiant_score: '',
-    dire_score: ''
-}
-
 module.exports = class SaveMatchHistoryModel {
 
-            MatchResultsData = sequelize.define('match_results_data',{
+            MatchResultsData = sequelize.define('match_results',{
                 players: {
                     type: Sequelize.ARRAY(Sequelize.BIGINT)
                 },

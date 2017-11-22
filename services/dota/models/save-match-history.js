@@ -1,6 +1,6 @@
 module.exports = class SaveMatchHistoryModel {
 
-        matchHistoryData = sequelize.define('match_history_data', {
+        matchHistoryData = sequelize.define('match_history', {
             match_id: {
             type: Sequelize.STRING
             },
